@@ -24,6 +24,19 @@ public class Rocket : MonoBehaviour
         Rotate();
         Thrust();
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        switch (collision.gameObject.tag)
+        {
+            case "Friendly":  //Do nothing
+                print("Okay");
+                break;
+
+            default: //Die
+                print("Dead");
+                break;
+        }
+    }
 
     private void Rotate()
     {
@@ -48,10 +61,10 @@ public class Rocket : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space)) // You can thrust while rotating.
         {
-            print("Space bar pressed");
+            //print("Space bar pressed");
             rigidBody.AddRelativeForce(Vector3.up * mainThrust); //Vector3 gives you a X,Y,Z position. We use it to give position and then create
                                                                  //movement. See more here - https://docs.unity3d.com/ScriptReference/Vector3.html
-            Debug.Log("Sound is not playing. Sound started");
+            //Debug.Log("Sound is not playing. Sound started");
             if (!audioSource.isPlaying)
             {
                 audioSource.Play();
@@ -59,7 +72,7 @@ public class Rocket : MonoBehaviour
         }
         else
         {
-            Debug.Log("Space Bar not pressed. Sound Stopped");
+            //Debug.Log("Space Bar not pressed. Sound Stopped");
             audioSource.Stop();
         }
         
