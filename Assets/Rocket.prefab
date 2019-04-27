@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rcsThrust: 250
-  mainThrust: 0.75
+  mainThrust: 0.5
 --- !u!1 &4860793515747383303
 GameObject:
   m_ObjectHideFlags: 0
